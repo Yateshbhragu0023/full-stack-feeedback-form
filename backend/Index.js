@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors")
 const userrouter = require("./Routers/Userrouter");
+require('dotenv').config()
 
 const server = express()
 
@@ -15,7 +16,7 @@ server.use('/users', userrouter )
 
 
 mongoose.connect(
-    "mongodb://localhost:27017/",
+    process.env.MONGO_URL,
     {
         dbName: "students"
     }
